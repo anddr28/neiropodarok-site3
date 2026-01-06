@@ -1,0 +1,286 @@
+:root{
+  --bg:#ebe9f1;
+  --panel:#f3f1f7;
+  --accent:#7b5cff;
+  --accent2:#d16cff;
+  --text:#1c1c1c;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{max-width:1200px;margin:auto;padding:24px}
+
+.header{
+  position:sticky;top:0;
+  background:rgba(235,233,241,.95);
+  backdrop-filter:blur(10px);
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+}
+
+.logo-wrap img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+}
+
+.nav a{
+  margin-left:18px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--text);
+}
+
+.hero{padding:80px 0}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.hero-video{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.hero-video video{width:100%}
+
+.watermark{
+  position:absolute;
+  bottom:10px;
+  right:12px;
+  color:rgba(255,255,255,.3);
+  font-weight:700;
+}
+
+.btn{
+  height:52px;
+  padding:0 28px;
+  border-radius:28px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 0 30px rgba(123,92,255,.35);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 45px rgba(123,92,255,.6);
+}
+
+.btn-outline{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+.section{padding:80px 0}
+.soft{background:var(--panel)}
+
+.why-grid,
+.how-steps,
+.photo-grid,
+.examples-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.why-card,
+.how-step{
+  background:var(--panel);
+  padding:24px;
+  border-radius:20px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.why-card:hover,
+.how-step:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(123,92,255,.3);
+}
+
+.how-step span{
+  display:block;
+  font-size:26px;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+
+.photo-grid img{
+  width:100%;
+  border-radius:22px;
+  transition:.35s;
+}
+
+.photo-grid img:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 40px rgba(123,92,255,.35);
+}
+
+.examples-grid video{
+  width:100%;
+  border-radius:20px;
+}
+
+.vertical{max-height:520px}
+
+.order-form{
+  max-width:520px;
+}
+
+.order-form input,
+.order-form textarea,
+.order-form select{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #ccc;
+  margin-bottom:12px;
+}
+
+.order-info{margin:18px 0 26px}
+
+.checkbox{
+  display:flex;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.footer{
+  background:var(--panel);
+  padding:40px 0 20px;
+}
+
+.footer-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+.footer-left span{
+  display:block;
+  font-size:14px;
+  color:#555;
+  margin-top:6px;
+}
+
+.footer-center{
+  font-size:13px;
+  text-align:center;
+  color:#666;
+}
+
+.footer-right{text-align:right}
+
+.social{
+  padding:10px 18px;
+  border-radius:20px;
+  font-weight:600;
+  color:#fff;
+  text-decoration:none;
+  margin-left:10px;
+  transition:.25s;
+}
+
+.social:hover{transform:translateY(-3px)}
+.tg{background:#0088cc}
+.vk{background:#4c75a3}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:20px;
+}
+
+#toTop{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  border:none;
+  border-radius:20px;
+  padding:10px 22px;
+  cursor:pointer;
+}
+#toTop:hover{transform:translateY(-3px)}
+
+/* ===== NAVIGATION ANIMATION ===== */
+
+.nav a{
+  position:relative;
+  padding:6px 4px;
+  transition:color .25s ease;
+  cursor:pointer;
+}
+
+/* underline */
+.nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  opacity:0;
+  transform:scaleX(0.6);
+  transition:.25s ease;
+  border-radius:2px;
+}
+
+/* hover */
+.nav a:hover{
+  color:var(--accent);
+}
+
+.nav a:hover::after{
+  opacity:1;
+  transform:scaleX(1);
+}
+
+/* active section (optional, nice bonus) */
+.nav a.active{
+  color:var(--accent);
+}
+
+.nav a.active::after{
+  opacity:1;
+  transform:scaleX(1);
+}
+
+/* button in nav hover fix */
+.nav .btn{
+  transition:.25s;
+}
+
+.nav .btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 40px rgba(123,92,255,.6);
+}

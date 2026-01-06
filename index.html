@@ -45,13 +45,19 @@
       </div>
     </div>
 
-    <div class="hero-video">
-      <video controls playsinline controlsList="nodownload" disablepictureinpicture>
-        <source src="images/hero_comedy.mp4" type="video/mp4">
-      </video>
-      <span class="watermark">Neiropodarok</span>
-    </div>
-  </div>
+    <div class="video-box protected">
+  <video
+    playsinline
+    preload="metadata"
+    muted
+  >
+    <source src="images/hero_comedy.mp4" type="video/mp4">
+  </video>
+
+    <button class="play-btn" aria-label="Play video"></button>
+    <button class="sound-btn" aria-label="Toggle sound"></button>
+    <div class="video-overlay"></div>
+
 </section>
 
 <!-- WHY -->
@@ -98,10 +104,42 @@
 <section id="examples" class="section">
   <div class="container">
     <h2>Примеры видео</h2>
+
     <div class="examples-grid">
-      <video src="images/video1.mp4" controls></video>
-      <video src="images/video2.mp4" controls></video>
-      <video src="images/video_vertical.mp4" class="vertical" controls></video>
+
+      <!-- video 1 -->
+      <div class="video-box protected">
+        <video playsinline preload="metadata" muted>
+          <source src="images/video1.mp4" type="video/mp4">
+        </video>
+        <button class="play-btn" aria-label="Play video"></button>
+        <button class="sound-btn" aria-label="Toggle sound"></button>
+        <div class="video-overlay"></div>
+
+      </div>
+
+      <!-- video 2 -->
+      <div class="video-box protected">
+        <video playsinline preload="metadata" muted>
+          <source src="images/video2.mp4" type="video/mp4">
+        </video>
+        <button class="play-btn" aria-label="Play video"></button>
+        <button class="sound-btn" aria-label="Toggle sound"></button>
+        <div class="video-overlay"></div>
+
+      </div>
+
+      <!-- vertical video -->
+      <div class="video-box protected vertical">
+        <video playsinline preload="metadata" muted>
+          <source src="images/video_vertical.mp4" type="video/mp4">
+        </video>
+        <button class="play-btn" aria-label="Play video"></button>
+        <button class="sound-btn" aria-label="Toggle sound"></button>
+        <div class="video-overlay"></div>
+
+      </div>
+
     </div>
   </div>
 </section>

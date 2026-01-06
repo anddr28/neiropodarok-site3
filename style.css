@@ -284,3 +284,218 @@ body{
   transform:translateY(-2px);
   box-shadow:0 0 40px rgba(123,92,255,.6);
 }
+
+/* ===== VIDEO LAYOUT ===== */
+
+.video-box{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:20px;
+  overflow:hidden;
+  background:#000;
+}
+
+.video-box video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* vertical video */
+.video-box.vertical{
+  aspect-ratio:9/16;
+}
+
+/* play button */
+.play-btn{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.25);
+  border:none;
+  cursor:pointer;
+  z-index:4;
+}
+
+.play-btn::before{
+  content:'▶';
+  font-size:64px;
+  color:white;
+  opacity:.9;
+}
+
+/* hide play when playing */
+.video-box.playing .play-btn{
+  display:none;
+}
+
+/* protection overlay */
+.video-overlay{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  background:transparent;
+}
+
+/* mobile fix */
+@media(max-width:600px){
+  .video-box{
+    aspect-ratio:auto;
+    max-height:70vh;
+  }
+
+  .video-box video{
+    object-fit:contain;
+  }
+}
+
+.video-box{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:20px;
+  overflow:hidden;
+  background:#000;
+}
+
+.video-box.vertical{
+  aspect-ratio:9/16;
+}
+
+.video-box video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.play-btn{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.25);
+  border:none;
+  cursor:pointer;
+  z-index:4;
+}
+
+.play-btn::before{
+  content:'▶';
+  font-size:64px;
+  color:white;
+}
+
+.video-box.playing .play-btn{
+  display:none;
+}
+
+.video-overlay{
+  position:absolute;
+  inset:0;
+  z-index:3;
+}
+
+.sound-btn{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:rgba(0,0,0,.45);
+  z-index:5;
+}
+
+.sound-btn::before{
+  content:'🔇';
+  font-size:20px;
+  color:#fff;
+}
+
+.video-box.sound-on .sound-btn::before{
+  content:'🔊';
+}
+
+/* ===== MOBILE FIX (CRITICAL) ===== */
+
+html, body{
+  overflow-x:hidden;
+}
+
+/* tablets & phones */
+@media (max-width: 900px){
+
+  .hero-inner{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+  }
+
+  .hero-text{
+    text-align:center;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:stretch;
+    gap:14px;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  .why-grid,
+  .how-steps,
+  .photo-grid,
+  .examples-grid{
+    grid-template-columns:1fr;
+  }
+
+  .order-form{
+    max-width:100%;
+  }
+
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+  }
+}
+
+/* phones only */
+@media (max-width: 480px){
+
+  h1{
+    font-size:26px;
+    line-height:1.2;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  .video-box{
+    max-height:70vh;
+  }
+
+  .video-box.vertical{
+    max-height:75vh;
+  }
+
+  .play-btn::before{
+    font-size:52px;
+  }
+
+  .sound-btn{
+    width:38px;
+    height:38px;
+  }
+}

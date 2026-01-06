@@ -66,3 +66,41 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+/* ===== CUSTOM VIDEO CONTROLS (NO DOWNLOAD) ===== */
+
+document.querySelectorAll('.video-box').forEach(box=>{
+  const video = box.querySelector('video');
+  const btn = box.querySelector('.play-btn');
+
+  // block context menu
+  video.addEventListener('contextmenu',e=>e.preventDefault());
+  video.addEventListener('dragstart',e=>e.preventDefault());
+
+  btn.addEventListener('click',()=>{
+    if(video.paused){
+      video.play();
+      box.classList.add('playing');
+    }else{
+      video.pause();
+      box.classList.remove('playing');
+    }
+  });
+
+  video.addEventListener('pause',()=>{
+    box.classList.remove('playing');
+  });
+});
+
+document.querySelectorAll('.video-box').forEach(box=>{
+  const video = box.querySelector('video');
+  const soundBtn = box.querySelector('.sound-btn');
+
+  if(!soundBtn) return;
+
+  soundBtn.addEventListener('click',()=>{
+    video.muted = !video.muted;
+    box.classList.toggle('sound-on', !video.muted);
+  });
+});
+
